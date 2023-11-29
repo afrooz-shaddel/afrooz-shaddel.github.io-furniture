@@ -1,0 +1,57 @@
+{"data1":
+    {"data":[
+        {"id":"1",
+        "img" :"./imgp/12.jpg",
+        "type":"Leather sofa" ,
+        "price":"40" , 
+        "quantity":"1"},
+
+        {"id":"2",
+         "img" :"./imgp/images (4).jpg", 
+         "type":"Leather sofa" , 
+         "price":"80" , 
+         "quantity":"1"},
+
+        {"id":"3",
+        "img":"./imgp/images10.jpg" , 
+        "type":"Leather sofa" , 
+        "price":"50" , 
+        "quantity":"1"},
+
+        {"id":"4",
+        "img" :"./imgp/download (1).jpg" , 
+        "type":"Leather sofa" , 
+        "price":"65" , 
+        "quantity":"1"},
+
+        {"id":"5",
+        "img":"./imgp/download.jpg " , 
+        "type":"Leather sofa" , 
+        "price":"78" , 
+        "quantity":"1"},
+
+        {"id":"6",
+        "img":"./imgp/images 16.jpg" , 
+        "type":"Steel furniture" , 
+        "price":"95" , 
+        "quantity":"1"},
+
+        {"id":"7",
+        "img":"./imgp/images (3).jpg" , 
+        "type":"Steel furniture" , 
+        "price":"35" , 
+        "quantity":"1"},
+
+        {"id":"8",
+        "img":"./imgp/images (2).jpg " , 
+        "type":"Steel furniture" , 
+        "price":"40" , 
+        "quantity":"1"}
+
+
+    ]}
+}
+
+
+
+

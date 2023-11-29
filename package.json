@@ -1,0 +1,1 @@
+{"name":"FURNITURE","source":"index.html","dependencies":{"json-server":"^0.17.4","npm":"^10.2.4"},"script":{"start":"npm start","build":"npm build"},"devDependencies":{"parcel":"^2.10.3"}}
