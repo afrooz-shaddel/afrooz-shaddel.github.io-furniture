@@ -1,50 +1,62 @@
+
+
+
 let data=[
     {"id":"1",
     "img" :"./imgp/12.jpg",
     "type":"Leather sofa" ,
-    "price":"40" , 
+    "price":"40" ,
+     "name":"Chesterfield",
     "quantity":"1"},
 
     {"id":"2",
      "img" :"./imgp/images (4).jpg", 
      "type":"Leather sofa" , 
-     "price":"80" , 
+     "price":"80" ,
+      "name":"Sectional", 
      "quantity":"1"},
 
     {"id":"3",
-    "img":"./imgp/images10.jpg" , 
+    "img":"imgp/imge14.jpg" , 
     "type":"Leather sofa" , 
     "price":"50" , 
+      "name":"Chaise", 
     "quantity":"1"},
 
     {"id":"4",
     "img" :"./imgp/download (1).jpg" , 
-    "type":"Leather sofa" , 
+    "type":"Leather Sofa" , 
     "price":"65" , 
+   "name":"Bridgewater", 
     "quantity":"1"},
 
     {"id":"5",
     "img":"./imgp/download.jpg " , 
     "type":"Leather sofa" , 
     "price":"78" , 
+   "name":"Cabriole", 
     "quantity":"1"},
 
     {"id":"6",
     "img":"./imgp/images 16.jpg" , 
     "type":"Steel furniture" , 
     "price":"95" , 
+    
+     "name":"Lawson", 
     "quantity":"1"},
 
     {"id":"7",
     "img":"./imgp/images (3).jpg" , 
     "type":"Steel furniture" , 
     "price":"35" , 
+   "name":"MidCentry", 
     "quantity":"1"},
 
     {"id":"8",
     "img":"./imgp/images (2).jpg " , 
-    "type":"Steel furniture" , 
-    "price":"40" , 
+    "type":"Steel furniture", 
+    "price":"40" ,
+   "name":"Flodingl", 
     "quantity":"1"}
 
 
@@ -66,6 +78,9 @@ let  arrowup=document.querySelector(".fa-arrow-up");
 
 let popularcontent=document.getElementById("shop-product")
 
+let emailInput=document.getElementById("email");
+let passwordInput=document.getElementById("password");
+let loginbutton=document.querySelector(".login-button");
 
 
 let popularsubtitle=document.querySelector(".popular-sub-title");
@@ -73,17 +88,28 @@ let shoppingcart=document.querySelector(".shopping-cart")
 
 
 let shoppingtotal=document.querySelector(".shopping-total")
+let shoppingtotalnumber=document.querySelector(".shopping-total-number")
+let shoppingtotalprice=document.querySelector(".shopping-total-price")
+let searchInput=document.querySelector(".searchInput")
+let searchBtn=document.querySelector(".searchbtn")
+let categoryList=document.querySelectorAll(".categoryItem");
 
-// function  showProductShop(){
+// let modal=document.querySelector(".modal");
 
-//   console.log("v")
+
+// function removeModal(){
+
 // }
 
-// popularsubtitle.addEventListener("click" , showProductShop)
+// modal.addEventListener("click" , removeModal)
+function submitForm(event){
+event.preventDefault()
+console.log(emailInput.value , passwordInput.value)
+}
 
 
 
-
+loginbutton.addEventListener("click" ,submitForm )
 
 
 function showLogin(){
@@ -159,40 +185,50 @@ removeboxshop.addEventListener("click" ,removeLogin )
 
 window.addEventListener("scroll" , scrollTop)
 
-function product(item){
-    
+
+function product(items){
+  popularcontent.innerHTML=""
+    items.forEach(item=>{
+      let divPopular= document.createElement("div");
+      divPopular.className="popular-item";
+      let imgPopular= document.createElement("img");
+     if(item.img && item.img!==undefined){
+       imgPopular.src=item.img;
+     }
+     // console.log(item.img)
+      imgPopular.src=item.img;
+      let divPopulardis= document.createElement("div");
+      divPopulardis.className="popular-discription  product"
+      let divWrapper= document.createElement("div");
+      
+      let pName= document.createElement("p");
+      pName.innerHTML=item.name;
+      let pPrice= document.createElement("p");
+      pPrice.innerHTML="$"+item.price
+      divWrapper.append(pName , pPrice)
+      let divWrapper2= document.createElement("div");
+      divWrapper2.className="buyProduct"
+     let iElem=document.createElement("i")
+     iElem.className="fa-solid fa-cart-shopping cart"
+     divWrapper2.append(iElem)
+     divWrapper2.addEventListener("click" , function(){
+      clickHandeler(item.id)
+     })
+     divPopulardis.append(divWrapper , divWrapper2)
+     divPopular.append(imgPopular , divPopulardis)
+     let divAos=document.createElement("div");
+     divAos.setAttribute("data-aos" , "fade-up")
+     divAos.setAttribute("data-aos-duration" , "3000")
+     divAos.append(divPopular)
+     popularcontent.append(divAos)
+     
+     
+    })
        
-    let divPopular= document.createElement("div");
- divPopular.className="popular-item";
- let imgPopular= document.createElement("img");
- imgPopular.setAttribute("src" , item.img)
- let divPopulardis= document.createElement("div");
- divPopulardis.className="popular-discription  product"
- let divWrapper= document.createElement("div");
- 
- let pName= document.createElement("p");
- pName.innerHTML="Solt Furniture"
- let pPrice= document.createElement("p");
- pPrice.innerHTML="$"+item.price
- divWrapper.append(pName , pPrice)
- let divWrapper2= document.createElement("div");
-let iElem=document.createElement("i")
-iElem.className="fa-solid fa-cart-shopping cart"
-divWrapper2.append(iElem)
-divWrapper2.addEventListener("click" , function(){
- clickHandeler(item.id)
-})
-divPopulardis.append(divWrapper , divWrapper2)
-divPopular.append(imgPopular , divPopulardis)
-
-// let divSlider= document.createElement("div");
-//  divSlider.className="mySlides fade popular-item"
-//  divSlider.append(imgPopular , divPopulardis)
-popularcontent.append(divPopular)
-
-
+   
 
 }
+
 
 
 
@@ -206,16 +242,21 @@ function clickHandeler(id){
    trueBasket= bascket.some(item=>item.id==id)      
    data1.forEach(item=>{
     if(trueBasket){
-      alert("a")
+      if(item.id===id){
+      // modal.innerHTML="added"
+        item.quantity++;
+        item.quantity=item.quantity
+      }
     }else{
       bascket.push(item)
     
     }
 
   
-console.log(bascket)
+
    })
    productBascket(bascket)
+   TotalCount(bascket)
   
   }
 //    bascket.push[obj1]
@@ -224,27 +265,26 @@ console.log(bascket)
 // filter
 
 
-function click1(){
-    let data2=event.target.value;
-    if(data2==="select"){
-       
-        alert("choose")
+  product(data)
 
-    }
+let alert=document.querySelector(".alert")
+function changeSection(){
+    let data2=event.target.value;
+  
     if(data2==="All"){
-        popularcontent.innerHTML=""
-        data.forEach(item=>{
-          product(item)
+      
+     
+          product(data)
  
  
-        })
+    
     }
     else{
       let data1=data.filter(item=>item.type==data2)
-      popularcontent.innerHTML=""
-      data1.forEach(item=>{
-        product(item)
-      })
+ 
+    
+        product(data1)
+     
  
     }
 }
@@ -313,10 +353,13 @@ shoppingcart.innerHTML=""
     shoppingprice.innerHTML=` ${item.price} $`;
     let quantity=document.createElement("div");
     quantity.className="quantity"
+    
     let iPlus=document.createElement("i");
+    iPlus.addEventListener("click" , ()=>{addProduct(item.id)})
     iPlus.className="fa-solid fa-plus";
     let iMenus=document.createElement("i");
     iMenus.className="fa-solid fa-minus";
+    iMenus.addEventListener("click" , ()=>minusProduct(item.id))
     let shoppingquantity=document.createElement("span");
     shoppingquantity.className="shopping-quantity";
     shoppingquantity.innerHTML=item.quantity;
@@ -326,23 +369,228 @@ shoppingcart.innerHTML=""
     shoppingitem.className="shopping-item";
     let iTrash=document.createElement("i");
     iTrash.className="fa-regular fa-trash-can";
+    iTrash.addEventListener("click" , ()=>{removeProduct(item.id)})
+
     shoppingitem.append(shoppingImg ,shoppingdiscription ,iTrash);
 
 shoppingcart.append(shoppingitem)
 
     })
+   
+  }
+
+  // add remove product
+
+  function addProduct(itemId){
+  let data=!!bascket.find(item=>item.id===itemId)
+if(data){
+  bascket.forEach(item=>{
+    if(item.id===itemId){
+      ++item.quantity
+      item.quantity=item.quantity
     
+    }
+  
+
+  })
+  productBascket(bascket)
+  TotalCount(bascket)
+
+}
+  }
+
+  function minusProduct(itemId){
+   bascket.forEach(item=>{
+    if(item.id===itemId){
+    
+     if(item.quantity>1){
+      --item.quantity;
+      item.quantity=item.quantity
+
+     }else{
+     
+      bascket=bascket.filter(item=>item.id!==itemId)
+     }
+    }
+   })
+   productBascket(bascket)
+   TotalCount(bascket)
+  
+  }
+
+  function removeProduct(itemId){
+    console.log(itemId)
+    bascket= bascket.filter(item=>item.id!==itemId);
+   productBascket(  bascket)
+   TotalCount(   bascket)
+  }
+
+  // shopping Total Price
+let bascket1=document.querySelector(".bascket")
+function TotalCount(productbascket){
+  console.log(productbascket)
+ let totalCount=0; 
+ productbascket.forEach(item=>{
+totalCount= totalCount+item.price*item.quantity
+// console.log(item.count)
+})
+if(productBascket.length>0){
+  if(totalCount===0){
+    shoppingtotalprice.innerHTML='totalCount:bascket empety'
+  }else{
+    shoppingtotalprice.innerHTML=`totalCount:${totalCount}$`
+  }
+}else{
+  bascket1.classList.add('bascket')
+}
+
+
+
+
+}
+
+
+
+
+
+// scrollTop;
+let faarrowup=document.querySelector(".fa-arrow-up");
+window.addEventListener("scroll" , function(){
+ 
+    faarrowup.classList.toggle("active-arrow" ,window.scrollY>100)
+  
+})
+faarrowup.addEventListener("click" , arrowToUp)
+function arrowToUp(){
+   
+    window.scrollTo({top:0 , behavior:"smooth"})
   }
 
 
-  // shopping Total Price
 
-function TotalCount(){
-  let shoppingtotalnumber=document.createElement("span");
-  shoppingtotalnumber.className="shopping-total-number";
-  shoppingtotalnumber.innerHTML=item.length;
-  let shoppingtotalprice=document.createElement("span");
-  shoppingtotalprice.className="shopping-total-price";
-  shoppingtotalprice.innerHTML= ` Total: ${item.length}$`;
-  shoppingtotal.append(shoppingtotalnumber , shoppingtotalprice)
+
+
+
+
+//   let appendNumber = 4;
+// let prependNumber = 1;
+
+
+const swiper = new Swiper('.swiper', {
+
+    loop: true,
+    // slidesPerView:3,
+    centeredSlides: true,
+    // spaceBetween: 5,
+    grabCursor:true,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      // type: 'fraction',
+    },
+   
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+    breakpoints:{
+      320:{
+        slidesPerView:"auto",
+        spaceBetween:15,
+      },
+    450 :{
+        slidesPerView:"auto",
+        spaceBetween:0,
+        centeredSlides: true,
+      },
+     768 :{
+        slidesPerView:3,
+        spaceBetween:20,
+        centeredSlides: true,
+      },
+      1100 :{
+        slidesPerView:3,
+        spaceBetween:40,
+        loop:true,
+        centeredSlides: true,
+      },
+    }
+
+   
+  });
+
+
+
+
+  // Aos.js
+
+  AOS.init();
+
+
+
+  // Search input
+function searchHandeler(event){
+let searchProduct= searchInput.value.toLowerCase().trim();
+if(!searchProduct ){
+
+    product(data)
+ 
+  
 }
+let prdouctFind=data.filter(item=>item.name.toLowerCase().includes(searchProduct));
+popularcontent.innerHTML=""
+
+  product(prdouctFind)
+
+
+
+}
+
+
+  searchInput.addEventListener("keyup" , searchHandeler)
+
+ 
+  // categoryList
+
+  function selectCategory(event){
+    let resualtCategory=event.target.innerHTML
+    
+   
+        
+    if(event.target.innerHTML==="All"){
+    
+     
+        product(data)
+  
+    }else{
+     let resultCategoryEnd=data.filter(item=>item.type===resualtCategory)
+     
+     product( resultCategoryEnd)
+     
+    }
+    categoryList.forEach(item=>{
+      if(item.innerHTML===resualtCategory){
+        item.classList.add("select")
+      }
+      else{
+        item.classList=""
+      }
+    })
+  }
+
+  categoryList.forEach(item=>
+  
+    item.addEventListener("click" ,selectCategory )
+  
+
+      )
+
+
+
+     

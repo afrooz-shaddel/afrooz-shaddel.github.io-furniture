@@ -35,6 +35,11 @@
         top:24%;
      }
 
+     .popular-item{
+        margin-left: 1rem;
+        margin-right: 1rem;
+     }
+
 }
  
 @media (min-width:576px) {
@@ -109,12 +114,19 @@
 h1{right: 8%;
 top: 24%;
 }
+
+.swiper-slide{
+    width: auto !important;
+}
+.popular-item{
+    width: 30rem;
+}
  
 }
 
 @media (min-width:768px) {
    .popular-content{
-    justify-content: space-between;
+    /* justify-content: space-between; */
    }
 
    .content-new{
@@ -138,10 +150,18 @@ top: 24%;
       h1{
         font-size: 12rem;
       }
-
+      .popular-item{
+        width: 40rem;
+    }
+     
       /* .content-news{
         height: auto;
       } */
+      .about-us{
+        align-items: center;
+        
+
+    }
 
 }
 
@@ -156,10 +176,12 @@ top: 24%;
     }
 
     .about-us-right{
-        margin-left: 2.5rem;
+        margin-left:1rem;
     }
   
 }
-@media (min-width:1400px) {
- 
+@media (min-width:1300px) {
+    .about-us-right{
+        margin-left:2.5rem;
+    }
 }
