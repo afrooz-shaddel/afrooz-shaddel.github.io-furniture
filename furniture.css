@@ -45,6 +45,10 @@ h1{
     right: 12%;
     top: 9%;
 }
+.fa-user-tie{
+    font-size: 2rem;
+    color: #f2f2f2;
+}
 .creet{
     color: #FB6B90;
 }
@@ -65,7 +69,7 @@ align-items: center;
     letter-spacing: 2px;
 }
 
-.fa-bars , .fa-basket-shopping, .fa-user , .colors{
+.fa-bars , .fa-basket-shopping, .fa-user , .colors , .fa-user-tie{
  width: 2.5rem;
  height: 2.5rem;
  background-color: #FF647F;
@@ -657,18 +661,41 @@ display: block;
 
 
 .login{
-    /* width: 100%;
+    /*width: 100%;
     min-height: 100vh;
-    background-color:(255,255,255,0.8 ) ; */
-    text-align: center;
+    background-color:(255,255,255,0.8 ) ;
     transform: translate(-50%, -80%);
     transition: top 2s ease-in-out;
     position: fixed;
     top:-50%;
     left: 50%;
     z-index: 2;
-
-
+    -webkit-transition: top 2s ease-in-out;
+    -moz-transition: top 2s ease-in-out;
+    -ms-transition: top 2s ease-in-out;
+    -o-transition: top 2s ease-in-out;
+    text-align: center;
+    /* */width: 100%; 
+     
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 90%;
+    */z-index: 2;
+    transform: translate(-50% , -80%);
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    font-family:"Roboto-Regular" ;
+    -webkit-transform: translate(-50% , -80%);
+    -moz-transform: translate(-50% , -80%);
+    -ms-transform: translate(-50% , -80%);
+    -o-transform: translate(-50% , -80%);
+    background-color: transparent;
+    text-align:center;
+    /*box-shadow: 1px 1px 15px deeppink;
+    */:;
+    width: 35rem;
 }
 .login-title{
     text-align: center;
@@ -677,17 +704,17 @@ display: block;
     font-family: "Roboto-Bold";
     margin-bottom: 2rem;
     position: relative;
-    color: pink;
+    color: #ff3659;
     
 }
 
-#mark{
+ #mark{
     position: absolute;
-    top: 15rem;
-    right: 1rem;
+    top: 1rem;
+    right: 2rem;
     font-size: 2.5rem;
     color: #FB4570;
-    /* bottom: 5rem; */
+    bottom: 5rem;
 }
 
 .mark1{ position: absolute;
@@ -740,15 +767,24 @@ display: block;
     width: 27rem;
     height: 3.5rem;
     display: block;
-
+    border: none;
     border-radius: 0.5rem;
     outline: none;
     background-color: #FB6B90;
     font-size: 1.5rem;
     font-family: "Roboto-Regular";
     margin: 1rem auto;
-color: #fff;
-cursor: pointer;
+    transition:all 0.3ms ;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition:all 0.3ms ;
+    -moz-transition:all 0.3ms ;
+    -ms-transition:all 0.3ms ;
+    -o-transition:all 0.3ms ;
+}
+.login-button:hover{
+    background-color: #FF3659;
+
 }
 
 .login-button:hover{

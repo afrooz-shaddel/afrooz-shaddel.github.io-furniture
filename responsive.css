@@ -46,6 +46,9 @@
     .form button{
         width: auto;
     }
+    .searchInput{
+        height: 4rem;
+    }
 
 }
 
@@ -132,6 +135,10 @@ top: 24%;
    .content-new{
     min-height: 20rem;
     padding-bottom: 1.5rem;
+   }
+   .searchInput{
+    height: 4rem;
+    width: 20rem;
    }
 
   

@@ -1,0 +1,60 @@
+.dashbordAdmin{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding-left:3rem;padding-right: 3rem;
+   margin-top: 2rem;
+    align-items: center;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+   
+}
+
+.logout{
+    margin-left: 2rem;
+    color: red;
+    font-family: "Roboto-Black";
+}
+
+.fa-house,
+.fa-right-to-bracket{
+    margin-left: 0.5rem;
+}
+.homeDashbord , .logout{
+   padding: 1rem 2rem;
+   
+    background-color:#fff;
+   
+}
+.homeDashbord:hover{
+    background-color: black;
+    color: #fff;
+}
+.logout:hover{
+    background-color: black;
+    color: #fff;
+}
+
+
+.homeDashbord
+{color: black;
+    font-family: "Roboto-Black";
+
+}
+
+.headerDashbord{
+    font-family: "Roboto-Black";
+    color: #FF647F;
+    font-size: 1.8rem;
+}

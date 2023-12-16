@@ -68,6 +68,7 @@ let login=document.querySelector(".login");
 let header=document.querySelector("header");
 let mark=document.querySelector("#mark");
 let fabars=document.querySelector(".fa-bars");
+
 let navlist=document.querySelector(".nav-list");
 let clearNav=document.querySelector("#color");
 let removeboxshop=document.querySelector(".mark1");
@@ -113,7 +114,7 @@ loginbutton.addEventListener("click" ,submitForm )
 
 
 function showLogin(){
-login.style.top="55%";
+login.style.top="75%";
 
 login.style.transition="top 2s "
 header.style.filter="blur(9px)";
@@ -244,10 +245,12 @@ function clickHandeler(id){
     if(trueBasket){
       if(item.id===id){
       // modal.innerHTML="added"
+      // alert("again added")
         item.quantity++;
         item.quantity=item.quantity
       }
     }else{
+      
       bascket.push(item)
     
     }
@@ -383,7 +386,9 @@ shoppingcart.append(shoppingitem)
 
   function addProduct(itemId){
   let data=!!bascket.find(item=>item.id===itemId)
+  console.log(data)
 if(data){
+
   bascket.forEach(item=>{
     if(item.id===itemId){
       ++item.quantity
@@ -428,7 +433,7 @@ if(data){
   // shopping Total Price
 let bascket1=document.querySelector(".bascket")
 function TotalCount(productbascket){
-  console.log(productbascket)
+  
  let totalCount=0; 
  productbascket.forEach(item=>{
 totalCount= totalCount+item.price*item.quantity
@@ -532,64 +537,64 @@ const swiper = new Swiper('.swiper', {
 
   AOS.init();
 
+let resualtCategory="all";
+let searchProduct="";
 
 
   // Search input
-function searchHandeler(event){
-let searchProduct= searchInput.value.toLowerCase().trim();
-if(!searchProduct ){
-
-    product(data)
- 
-  
-}
-let prdouctFind=data.filter(item=>item.name.toLowerCase().includes(searchProduct));
-popularcontent.innerHTML=""
-
-  product(prdouctFind)
-
-
+function searchHandeler(){
+ searchProduct= searchInput.value.toLowerCase().trim();
+filterSearch()
 
 }
-
-
   searchInput.addEventListener("keyup" , searchHandeler)
 
- 
+  
+
   // categoryList
 
   function selectCategory(event){
-    let resualtCategory=event.target.innerHTML
-    
-   
-        
-    if(event.target.innerHTML==="All"){
-    
-     
-        product(data)
-  
-    }else{
-     let resultCategoryEnd=data.filter(item=>item.type===resualtCategory)
-     
-     product( resultCategoryEnd)
-     
-    }
+  resualtCategory=event.target.innerHTML.toLowerCase()
+
     categoryList.forEach(item=>{
-      if(item.innerHTML===resualtCategory){
+     
+      if(item.innerHTML.toLowerCase()===resualtCategory){
+       
         item.classList.add("select")
+       
       }
       else{
-        item.classList=""
+        item.className=""
       }
     })
+    filterSearch()
   }
+  categoryList.forEach(item=>item.addEventListener("click" , selectCategory)   )
 
-  categoryList.forEach(item=>
-  
-    item.addEventListener("click" ,selectCategory )
-  
 
-      )
+
+
+
+
+
+  let filterSearch=()=>{
+    let filtered=null;
+    if(searchProduct){
+      filtered=!!data.find(item=>(item.name.toLowerCase().includes(searchProduct)))
+     if(!filtered){
+      filtered=data
+     } else{
+      if(resualtCategory==="all"){
+        filtered= data.filter(item=>item.name.toLowerCase().includes(searchProduct))}
+      else{
+        filtered= data.filter(item=>
+          item.type.toLowerCase()===resualtCategory && item.name.toLowerCase().includes(searchProduct)
+         ) }}}
+  else{
+      if(resualtCategory==="all"){
+        filtered=data}else{
+        filtered=data.filter(item=> item.type.toLowerCase()===resualtCategory ) } }
+    product(filtered)}
 
 
 
