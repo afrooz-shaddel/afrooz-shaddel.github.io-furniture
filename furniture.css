@@ -267,9 +267,11 @@ main{
 .container-text1{
     display: flex;
     /* justify-content: space-between; */
-    flex-direction: column;
+    /* flex-direction: column; */
 }
-
+.container-text1{
+ 
+}
 .popular-content{
     display: flex;
     justify-content: space-between;
@@ -1045,6 +1047,12 @@ display: block;
     animation-name: fade;
     animation-duration: 1.5s;
   }
+  .container-text1{
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .searchInputWrapper{
     width: 25rem;
@@ -1056,6 +1064,7 @@ display: block;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
     overflow: hidden;
+    margin-right: 2rem;
    
   
     position: relative;
