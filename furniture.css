@@ -446,7 +446,7 @@ margin-top: 5rem;
     
 }
 .searchbtn .fa-magnifying-glass{
-   color: #FB4570; 
+   color: white; 
    cursor: pointer;
 }
 
@@ -475,6 +475,11 @@ margin-top: 5rem;
     font-weight: bold;
     width: 12rem;
     cursor: pointer;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
 }
 
 
@@ -1040,6 +1045,43 @@ display: block;
     animation-name: fade;
     animation-duration: 1.5s;
   }
+
+  .searchInputWrapper{
+    width: 25rem;
+    background-color:#a9c686;
+    background-color: #fb4570;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    overflow: hidden;
+   
+  
+    position: relative;
+    height: 4rem;
+    border: 1px solid #FB6B90;
+  
+
+}
+.searchInputWrapper input{
+    border: none;
+    width: 80%;
+    outline: none;
+    overflow: hidden;
+    padding-left: 15px;
+    position: absolute;
+    background-color: white;
+    height: 100%;
+    
+}
+.searchbtn {
+    position: absolute;
+    right: 2rem;
+    height: 100%;
+   padding-bottom: 0.2rem;
+}
+
   
   @keyframes fade {
     from {opacity: .4}
